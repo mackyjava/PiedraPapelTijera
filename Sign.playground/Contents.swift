@@ -1,7 +1,6 @@
 import UIKit
 import GameplayKit
 
-
  enum Sign {
     case piedra, papel, tijeras
     
@@ -61,5 +60,18 @@ enum  GameSet: String{
     case inicio, ganar, perder, empatar
     
 }
+let randomChoice = GKRandomDistribution(lowestValue: 0, highestValue: 2)
 
-print
+func randomSign() -> Sign {
+    let newSign =  randomChoice.nextInt()
+    switch newSign{
+        case 0:
+            return .piedra
+        case 1:
+            return .papel
+    default:
+        return .tijeras
+    }
+     
+}
+
